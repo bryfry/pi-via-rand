@@ -16,12 +16,28 @@ type Trial struct {
 }
 
 func main() {
-	var num_trials = 500
 	var i uint64
 
 	fmt.Printf("n trials, max rand, variance, min, q1, q2, q3, max\n")
 	for i = 1; i < 100; i++ {
+		var max_rand = big.NewInt(120)
+		var num_trials = 2 << i
+		var exp_pis []float64
+		for i := 1; i <= 4096; i++ {
+			exp_pis = append(exp_pis, Experiment(max_rand, num_trials))
+		}
+		max, _ := stats.Max(exp_pis)
+		min, _ := stats.Min(exp_pis)
+		mean, _ := stats.Mean(exp_pis)
+		variance, _ := stats.Variance(exp_pis)
+		q, _ := stats.Quartile(exp_pis)
+		fmt.Printf("%d, %d, %f, %f, %f, %f, %f, %f\n", num_trials, max_rand, variance, min, q.Q1, mean, q.Q3, max)
+	}
+
+	fmt.Printf("n trials, max rand, variance, min, q1, q2, q3, max\n")
+	for i = 1; i < 100; i++ {
 		var max_rand = big.NewInt(2 << i)
+		var num_trials = 500
 		var exp_pis []float64
 		for i := 1; i <= 4096; i++ {
 			exp_pis = append(exp_pis, Experiment(max_rand, num_trials))
