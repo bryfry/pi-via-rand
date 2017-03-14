@@ -9,7 +9,7 @@ Answer: Not really, 120 sided dice was probably good enough, you just need more 
 ![Pi via 500 n-sided dice throws](dice.png)
 ![Pi via n 120-sided dice throws](rolls.png)
 
-Google spreadsheet with data and nice chart: https://goo.gl/Mkoqf6
+Google spreadsheet with data and nice charts: https://goo.gl/Mkoqf6
 
 Sample size was 4096 for both tests 
 * 4k samples of n-sided dice with 500 rolls
