@@ -10,4 +10,9 @@ Answer: Not really, 120 sided dice was probably good enough, you just need more 
 
 Google spreadsheet with data and nice chart: https://goo.gl/Mkoqf6
 
+To run: 
+* install golang
+* `go get github.com/montanaflynn/stats`
+* `go run main.go`
+
 
